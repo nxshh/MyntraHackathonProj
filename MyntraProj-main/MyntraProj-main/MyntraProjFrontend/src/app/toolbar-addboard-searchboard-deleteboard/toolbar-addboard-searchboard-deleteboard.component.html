@@ -1,0 +1,45 @@
+<div class="card">
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+      <p-button
+        icon="pi pi-plus"
+        pTooltip="Add board"
+        tooltipPosition="bottom"
+        (onClick)="showDialog()"
+        class="mr-2"
+      />
+    </div>
+    <div class="p-toolbar-group-center">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input pInputText placeholder="Search Boards" />
+      </span>
+    </div>
+    <div class="p-toolbar-group-end">
+      <p-splitButton label="Save" icon="pi pi-check" [model]="items" />
+    </div>
+  </p-toolbar>
+</div>
+
+<!-- Add Board Dailog -->
+<div class="card flex justify-content-center">
+  <p-dialog
+    header="Add Vision Board"
+    [(visible)]="visible"
+    [style]="{ width: '25rem' }"
+  >
+    <div class="flex align-items-center gap-3 boardinput">
+      <input
+        pInputText
+        id="board"
+        [(ngModel)]="boardName"
+        class="flex-auto"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="flex justify-content-end gap-2 boardsaveinput">
+      <p-button label="Save" (click)="addBoard()" (onClick)="visible = false" />
+    </div>
+  </p-dialog>
+</div>
